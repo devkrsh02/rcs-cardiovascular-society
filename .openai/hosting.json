@@ -1,8 +1,5 @@
 {
   "project_id": "appgprj_6aa563b126d08191a8641b0aeaf0f32b",
-  "build": {
-    "command": "npm run build"
-  },
   "static": {
     "directory": "dist"
   }
