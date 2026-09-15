@@ -1,0 +1,16 @@
+allowBuilds:
+  esbuild: true
+  fsevents: true
+  sharp: true
+  unrs-resolver: true
+  workerd: true
+strictDepBuilds: true
+minimumReleaseAge: 10080
+minimumReleaseAgeIgnoreMissingTime: false
+trustLockfile: false
+cacheDir: ${SITES_PNPM_SHARED_STORE:-.sites-runtime/pnpm-store}/policy-cache
+enableGlobalVirtualStore: false
+packageImportMethod: clone-or-copy
+storeDir: ${SITES_PNPM_SHARED_STORE:-.sites-runtime/pnpm-store}
+verifyDepsBeforeRun: false
+optimisticRepeatInstall: false
