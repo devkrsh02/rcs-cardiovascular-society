@@ -46,3 +46,5 @@ next-env.d.ts
 /work/
 /upload/
 /site-upgrade/
+/generated_images/
+/*.tar.gz

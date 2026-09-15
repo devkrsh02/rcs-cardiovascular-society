@@ -1,5 +1,5 @@
 import { ActivityBrowser } from "./components/activity-browser";
-import { formatSemesterRange, getSemester } from "@/lib/semester";
+import { getSemester } from "@/lib/semester";
 
 const boardSeats = Array.from({ length: 6 }, (_, index) => index + 1);
 
@@ -59,16 +59,11 @@ export default function Home() {
               The site changes semester automatically on those dates.
             </p>
           </div>
-          <div className="hero-seal">
-            <div className="seal-halo" aria-hidden="true" />
+          <div className="hero-heart-art" aria-hidden="true">
             <img
-              src="/rcs-logo.jpeg"
-              alt="RSU Cardiovascular Society emblem with an anatomical heart"
+              src="/rcs-anatomical-heart.png"
+              alt=""
             />
-            <div className="seal-caption">
-              <span>{semester.season} programme</span>
-              <strong>{formatSemesterRange(semester)}</strong>
-            </div>
           </div>
         </section>
 
