@@ -172,7 +172,27 @@ export default function Home() {
             <small>RSU Cardiovascular Society</small>
           </span>
         </div>
-        <p>{semester.name} · Private society hub</p>
+        <div className="footer-center">
+          <p>{semester.name} · Private society hub</p>
+          <nav className="footer-contacts" aria-label="RCS contact details">
+            <a href="mailto:cardiovascularsociety@gmail.com">
+              <span>Email</span>
+              cardiovascularsociety@gmail.com
+            </a>
+            <a href="https://www.instagram.com/rcs.rsu/" target="_blank" rel="noreferrer">
+              <span>Instagram</span>
+              @rcs.rsu
+            </a>
+            <a
+              href="https://chat.whatsapp.com/DHfgBzbYKO59aPfO6v15FW?mode=gi_t"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>WhatsApp</span>
+              Join the chat
+            </a>
+          </nav>
+        </div>
         <a href="#top">Back to top ↑</a>
       </footer>
     </>

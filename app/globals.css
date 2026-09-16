@@ -480,7 +480,7 @@ h3 { text-wrap: balance; }
 
 .site-footer {
   display: flex;
-  min-height: 120px;
+  min-height: 156px;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
@@ -491,6 +491,20 @@ h3 { text-wrap: balance; }
 .site-footer p,
 .site-footer > a { margin: 0; color: var(--muted); font-size: 0.82rem; }
 .site-footer > a { font-weight: 800; text-decoration: none; }
+.footer-center { display: grid; justify-items: center; gap: 13px; }
+.footer-center > p { margin: 0; color: var(--muted); font-size: 0.78rem; }
+.footer-contacts { display: flex; align-items: center; justify-content: center; gap: 18px; }
+.footer-contacts a {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--burgundy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer-contacts a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer-contacts span { color: var(--muted); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 
 /* Member area */
 .member-shell { min-height: 100vh; padding-top: 28px; padding-bottom: 80px; background: var(--paper); }
@@ -574,6 +588,9 @@ h3 { text-wrap: balance; }
   .admin-grid { grid-template-columns: 1fr; }
   .member-hero { align-items: flex-start; flex-direction: column; }
   .verified-badge { min-width: 0; width: min(100%, 430px); }
+  .site-footer { align-items: flex-start; flex-wrap: wrap; padding-block: 30px; }
+  .footer-center { order: 3; width: 100%; justify-items: start; }
+  .footer-contacts { justify-content: flex-start; flex-wrap: wrap; }
 }
 
 @media (max-width: 700px) {
@@ -594,6 +611,8 @@ h3 { text-wrap: balance; }
   .principles { grid-template-columns: 1fr; }
   .board-grid { grid-template-columns: 1fr; }
   .site-footer { align-items: flex-start; flex-direction: column; padding-block: 30px; }
+  .footer-center { order: initial; }
+  .footer-contacts { align-items: flex-start; flex-direction: column; gap: 9px; }
   .member-header { align-items: flex-start; }
   .member-account { max-width: 52%; justify-items: end; text-align: right; }
   .member-account strong { overflow-wrap: anywhere; }
