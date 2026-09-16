@@ -189,7 +189,7 @@ export default function Home() {
               rel="noreferrer"
             >
               <span>WhatsApp</span>
-              Join the chat
+              Join our newsletter
             </a>
           </nav>
         </div>
