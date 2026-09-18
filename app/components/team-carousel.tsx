@@ -50,6 +50,9 @@ export function TeamCarousel() {
           >
             <div className="team-cover-side-label" aria-hidden="true">THE PEOPLE BEHIND RCS</div>
             <div className="team-cover-paper">
+              <div className="team-cover-heart-art" aria-hidden="true">
+                <img src="/rcs-anatomical-heart.png" alt="" />
+              </div>
               <div className="team-cover-copy">
                 <p>RSU CARDIOVASCULAR SOCIETY · BOARD 2026/27</p>
                 <h3>Meet<br />the Team</h3>
@@ -57,9 +60,6 @@ export function TeamCarousel() {
               </div>
               <div className="team-cover-photo-frame">
                 <img src="/rcs-board-2026-27.png" alt="The RCS board together outdoors" />
-                <span className="team-cover-heart" aria-hidden="true">
-                  <img src="/rcs-anatomical-heart.png" alt="" />
-                </span>
               </div>
               <div className="team-cover-swipe" aria-hidden="true">SWIPE TO MEET THE BOARD <b>→</b></div>
             </div>
