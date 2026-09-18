@@ -33,7 +33,7 @@ const featuredResources = [
     contentType: "application/pdf",
     sizeBytes: 8625293,
     uploadedAt: "2026-09-18T00:00:00.000Z",
-    description: "A 150-question ECG practice book for working through rhythm and tracing interpretation problems.",
+    description: "A 150-question ECG practice book for working through rhythm, rate and tracing-interpretation problems.",
     href: "/resources/ecg-practice.pdf",
   },
 ];
