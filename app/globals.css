@@ -579,6 +579,18 @@ h3 { text-wrap: balance; }
   display: none;
 }
 .team-member-slide { grid-template-columns: minmax(330px, 0.82fr) minmax(0, 1.18fr); }
+.team-member-heart-art {
+  position: absolute;
+  z-index: 0;
+  top: 3%;
+  right: -12%;
+  width: 65%;
+  height: 94%;
+  opacity: 0.12;
+  pointer-events: none;
+  transform: rotate(4deg);
+}
+.team-member-heart-art img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .team-member-photo {
   position: relative;
   z-index: 1;
@@ -1001,6 +1013,7 @@ h3 { text-wrap: balance; }
   .team-cover-heart-art { top: 25%; right: -28%; width: 108%; height: 62%; opacity: 0.25; }
   .team-cover-swipe { bottom: 26px; left: 30px; font-size: 0.6rem; }
   .team-member-slide { grid-template-columns: 1fr; grid-template-rows: 330px auto; }
+  .team-member-heart-art { top: 34%; right: -30%; width: 110%; height: 62%; opacity: 0.1; }
   .team-member-photo { min-height: 330px; }
   .team-member-photo.has-photo img { object-position: 54% 29%; }
   .team-member-photo::after { width: 24%; }

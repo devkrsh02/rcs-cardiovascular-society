@@ -71,6 +71,9 @@ export function TeamCarousel() {
               key={`${member.name}-${index}`}
               aria-hidden={activeSlide !== index + 1}
             >
+              <div className="team-member-heart-art" aria-hidden="true">
+                <img src="/rcs-anatomical-heart.png" alt="" />
+              </div>
               <div className={`team-member-photo${member.image ? " has-photo" : ""}`}>
                 {member.image ? (
                   <img src={member.image} alt={`Portrait of ${member.name}`} />
