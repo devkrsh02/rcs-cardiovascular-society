@@ -36,12 +36,28 @@ const featuredResources = [
     description: "A 150-question ECG practice book for working through rhythm, rate and tracing-interpretation problems.",
     href: "/resources/ecg-practice.pdf",
   },
+  {
+    id: "academic-society-regulations",
+    title: "Academic Society Regulations",
+    category: "Rules & regulations",
+    originalFilename: "Academic Society Regulations (1).pdf",
+    contentType: "application/pdf",
+    sizeBytes: 596240,
+    uploadedAt: "2026-09-19T00:00:00.000Z",
+    description: "The regulations governing academic societies and their activities.",
+    href: "/resources/academic-society-regulations.pdf",
+  },
 ];
 
 export default async function PublicResourcesPage() {
   const storageReady = Boolean(env.DB && env.BUCKET);
   const uploadedResources = storageReady ? await listResources() : [];
   const resources = [...featuredResources, ...uploadedResources];
+  const groupedResources = resources.reduce<Record<string, typeof resources>>((groups, resource) => {
+    (groups[resource.category] ??= []).push(resource);
+    return groups;
+  }, {});
+  const categoryOrder = ["Revision materials", "Rules & regulations", "Research support", "Other"];
 
   return (
     <>
@@ -90,30 +106,44 @@ export default async function PublicResourcesPage() {
             <span>{resources.length} {resources.length === 1 ? "file" : "files"}</span>
           </div>
           {resources.length ? (
-            <div className="resource-list">
-              {resources.map((resource) => (
-                <article className="resource-row" key={resource.id}>
-                  <div className="file-mark">
-                    {resource.originalFilename.split(".").pop()?.slice(0, 4).toUpperCase() || "FILE"}
-                  </div>
-                  <div>
-                    <span className="resource-category">{resource.category}</span>
-                    <h3>{resource.title}</h3>
-                    {"description" in resource ? <p className="resource-description">{resource.description}</p> : null}
-                    <p>
-                      {resource.originalFilename} · {formatSize(resource.sizeBytes)} · {formatDate(resource.uploadedAt)}
-                    </p>
-                  </div>
-                  <div className="resource-actions">
-                    <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} target="_blank" rel="noreferrer">
-                      Read online
-                    </a>
-                    <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} download={"href" in resource ? "ECG-Practice.pdf" : undefined}>
-                      Download
-                    </a>
-                  </div>
-                </article>
-              ))}
+            <div className="resource-groups">
+              {Object.entries(groupedResources)
+                .sort(([a], [b]) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b))
+                .map(([category, categoryResources]) => (
+                  <section className="resource-group" key={category} aria-labelledby={`resource-group-${category.replace(/\W+/g, "-").toLowerCase()}`}>
+                    <div className="resource-group-heading">
+                      <h3 id={`resource-group-${category.replace(/\W+/g, "-").toLowerCase()}`}>
+                        {category === "Revision materials" ? "Study resources" : category}
+                      </h3>
+                      <span>{categoryResources.length} {categoryResources.length === 1 ? "file" : "files"}</span>
+                    </div>
+                    <div className="resource-list">
+                      {categoryResources.map((resource) => (
+                        <article className="resource-row" key={resource.id}>
+                          <div className="file-mark">
+                            {resource.originalFilename.split(".").pop()?.slice(0, 4).toUpperCase() || "FILE"}
+                          </div>
+                          <div>
+                            <span className="resource-category">{resource.category}</span>
+                            <h3>{resource.title}</h3>
+                            {"description" in resource ? <p className="resource-description">{resource.description}</p> : null}
+                            <p>
+                              {resource.originalFilename} · {formatSize(resource.sizeBytes)} · {formatDate(resource.uploadedAt)}
+                            </p>
+                          </div>
+                          <div className="resource-actions">
+                            <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} target="_blank" rel="noreferrer">
+                              Read online
+                            </a>
+                            <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} download={"href" in resource ? resource.originalFilename : undefined}>
+                              Download
+                            </a>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                ))}
             </div>
           ) : (
             <div className="empty-state compact-empty">
