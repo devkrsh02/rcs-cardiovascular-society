@@ -48,12 +48,21 @@ export function TeamCarousel() {
             className="team-slide team-cover-slide"
             aria-hidden={activeSlide !== 0}
           >
-            <div className="team-cover-copy">
-              <p>RCS · Board 2026/27</p>
-              <h3>Meet<br />the Team</h3>
-              <span>Six students. One shared commitment to cardiovascular education.</span>
+            <div className="team-cover-side-label" aria-hidden="true">THE PEOPLE BEHIND RCS</div>
+            <div className="team-cover-paper">
+              <div className="team-cover-copy">
+                <p>RSU CARDIOVASCULAR SOCIETY · BOARD 2026/27</p>
+                <h3>Meet<br />the Team</h3>
+                <span>Six students. One shared commitment to cardiovascular education.</span>
+              </div>
+              <div className="team-cover-photo-frame">
+                <img src="/rcs-board-2026-27.png" alt="The RCS board together outdoors" />
+                <span className="team-cover-heart" aria-hidden="true">
+                  <img src="/rcs-anatomical-heart.png" alt="" />
+                </span>
+              </div>
+              <div className="team-cover-swipe" aria-hidden="true">SWIPE TO MEET THE BOARD <b>→</b></div>
             </div>
-            <img src="/rcs-anatomical-heart.png" alt="" aria-hidden="true" />
           </article>
 
           {boardMembers.map((member, index) => (
