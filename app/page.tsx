@@ -1,22 +1,7 @@
 import { ActivityBrowser } from "./components/activity-browser";
+import { TeamCarousel } from "./components/team-carousel";
 import { getSemester } from "@/lib/semester";
 import { formatNewsDate, newsArticles } from "@/lib/news";
-
-const boardMembers = [
-  {
-    name: "G R Devesh Krishnan",
-    role: "Representative",
-    image: "/gr-devesh-krishnan.jpeg",
-    introduction:
-      "Hello everyone! My name is G R Devesh Krishnan, an 8th-semester medical student here at RSU and a representative for the RSU Cardiovascular Society. Having spent the last few years navigating clinical rotations, my passion for cardiovascular medicine has only grown stronger. What draws me to this field is its perfect blend of high-stakes visual diagnostics, dynamic haemodynamics and immediate clinical impact—where rapid, evidence-based intervention directly saves lives. I’m thrilled to represent RCS and look forward to fostering a collaborative environment for all of us fascinated by the heart.",
-  },
-  ...Array.from({ length: 5 }, () => ({
-    name: "Name to be confirmed",
-    role: "Board profile",
-    image: null,
-    introduction: "Role and short introduction pending.",
-  })),
-];
 
 export default function Home() {
   const semester = getSemester();
@@ -159,23 +144,7 @@ export default function Home() {
               introductions are confirmed.
             </p>
           </div>
-          <div className="board-grid">
-            {boardMembers.map((member, index) => (
-              <article className={`board-card${member.image ? " board-card-confirmed" : ""}`} key={`${member.name}-${index}`}>
-                <div className="board-number">{String(index + 1).padStart(2, "0")}</div>
-                <div className={`board-portrait${member.image ? " has-photo" : ""}`}>
-                  {member.image ? (
-                    <img src={member.image} alt={`Portrait of ${member.name}`} />
-                  ) : (
-                    <span aria-hidden="true">RCS</span>
-                  )}
-                </div>
-                <p className="board-role">{member.role}</p>
-                <h3>{member.name}</h3>
-                <p>{member.introduction}</p>
-              </article>
-            ))}
-          </div>
+          <TeamCarousel />
         </section>
 
         <section className="resources-section" id="resources">
