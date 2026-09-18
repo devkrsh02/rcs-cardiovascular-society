@@ -24,9 +24,24 @@ function formatDate(value: string) {
   }).format(new Date(value));
 }
 
+const featuredResources = [
+  {
+    id: "ecg-practice",
+    title: "ECG Practice",
+    category: "Revision materials",
+    originalFilename: "150_ECG_Problems.pdf",
+    contentType: "application/pdf",
+    sizeBytes: 8625293,
+    uploadedAt: "2026-09-18T00:00:00.000Z",
+    description: "A 150-question ECG practice book for working through rhythm and tracing interpretation problems.",
+    href: "/resources/ecg-practice.pdf",
+  },
+];
+
 export default async function PublicResourcesPage() {
   const storageReady = Boolean(env.DB && env.BUCKET);
-  const resources = storageReady ? await listResources() : [];
+  const uploadedResources = storageReady ? await listResources() : [];
+  const resources = [...featuredResources, ...uploadedResources];
 
   return (
     <>
@@ -84,11 +99,19 @@ export default async function PublicResourcesPage() {
                   <div>
                     <span className="resource-category">{resource.category}</span>
                     <h3>{resource.title}</h3>
+                    {"description" in resource ? <p className="resource-description">{resource.description}</p> : null}
                     <p>
                       {resource.originalFilename} · {formatSize(resource.sizeBytes)} · {formatDate(resource.uploadedAt)}
                     </p>
                   </div>
-                  <a href={`/api/resources/${resource.id}`}>Download</a>
+                  <div className="resource-actions">
+                    <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} target="_blank" rel="noreferrer">
+                      Read online
+                    </a>
+                    <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} download={"href" in resource ? "ECG-Practice.pdf" : undefined}>
+                      Download
+                    </a>
+                  </div>
                 </article>
               ))}
             </div>
