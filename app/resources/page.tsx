@@ -105,9 +105,15 @@ export default async function PublicResourcesPage() {
                     </p>
                   </div>
                   <div className="resource-actions">
-                    <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} target="_blank" rel="noreferrer">
-                      Read online
-                    </a>
+                    <details className="resource-reader">
+                      <summary>Read online</summary>
+                      <div className="resource-reader-panel">
+                        <iframe
+                          src={"href" in resource ? resource.href : `/api/resources/${resource.id}?inline=1`}
+                          title={`Read ${resource.title} online`}
+                        />
+                      </div>
+                    </details>
                     <a href={"href" in resource ? resource.href : `/api/resources/${resource.id}`} download={"href" in resource ? "ECG-Practice.pdf" : undefined}>
                       Download
                     </a>
