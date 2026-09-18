@@ -1,5 +1,6 @@
 import { ActivityBrowser } from "./components/activity-browser";
 import { getSemester } from "@/lib/semester";
+import { formatNewsDate, newsArticles } from "@/lib/news";
 
 const boardSeats = Array.from({ length: 6 }, (_, index) => index + 1);
 
@@ -21,6 +22,7 @@ export default function Home() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#activities">Activities</a>
+          <a href="/news">News</a>
           <a href="#about">About</a>
           <a href="#board">Board</a>
           <a href="#resources">Resources</a>
@@ -79,6 +81,39 @@ export default function Home() {
             </p>
           </div>
           <ActivityBrowser semester={semester.name} />
+        </section>
+
+        <section className="news-home-section" id="news">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">New every Tuesday</p>
+              <h2>Cardiology news, explained by RCS.</h2>
+            </div>
+            <p>
+              Narrative summaries of major developments in cardiovascular medicine,
+              with images and direct links to the original evidence.
+            </p>
+          </div>
+          {newsArticles.length > 0 ? (
+            <div className="news-home-list">
+              {newsArticles.slice(0, 3).map((article) => (
+                <article key={article.slug}>
+                  <time dateTime={article.publishedAt}>{formatNewsDate(article.publishedAt)}</time>
+                  <h3><a href={`/news/${article.slug}`}>{article.title}</a></h3>
+                  <p>{article.summary}</p>
+                  <a href={`/news/${article.slug}`}>Read article →</a>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="news-home-empty">
+              <p><strong>First edition coming soon.</strong> The archive will grow with a new cardiology story every Tuesday.</p>
+              <a className="button button-quiet" href="/news">Open the news archive</a>
+            </div>
+          )}
+          {newsArticles.length > 0 ? (
+            <a className="button button-quiet news-archive-button" href="/news">View all articles →</a>
+          ) : null}
         </section>
 
         <section className="about-section" id="about">
