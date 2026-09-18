@@ -457,9 +457,13 @@ h3 { text-wrap: balance; }
 .board-portrait { display: grid; width: 100%; aspect-ratio: 1.45; place-items: center; margin-bottom: 22px; background: linear-gradient(145deg, #9e696a, #6a1521); color: rgba(248, 233, 212, 0.82); }
 .board-portrait::before { position: absolute; width: 110px; height: 110px; border: 1px solid rgba(248, 233, 212, 0.28); border-radius: 50%; content: ""; }
 .board-portrait span { z-index: 1; font-family: var(--serif); font-size: 1.4rem; letter-spacing: 0.16em; }
+.board-portrait.has-photo { overflow: hidden; background: var(--paper-deep); }
+.board-portrait.has-photo::before { display: none; }
+.board-portrait.has-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 54% 35%; }
 .board-role { margin-bottom: 5px; color: var(--burgundy); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
 .board-card h3 { margin-bottom: 5px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
 .board-card > p:last-child { margin: 0; color: var(--muted); font-size: 0.88rem; }
+.board-card-confirmed > p:last-child { line-height: 1.65; }
 
 .resources-section {
   display: grid;

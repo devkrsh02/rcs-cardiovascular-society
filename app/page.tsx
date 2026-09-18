@@ -2,7 +2,21 @@ import { ActivityBrowser } from "./components/activity-browser";
 import { getSemester } from "@/lib/semester";
 import { formatNewsDate, newsArticles } from "@/lib/news";
 
-const boardSeats = Array.from({ length: 6 }, (_, index) => index + 1);
+const boardMembers = [
+  {
+    name: "G R Devesh Krishnan",
+    role: "Representative",
+    image: "/gr-devesh-krishnan.jpeg",
+    introduction:
+      "Hello everyone! My name is G R Devesh Krishnan, an 8th-semester medical student here at RSU and a representative for the RSU Cardiovascular Society. Having spent the last few years navigating clinical rotations, my passion for cardiovascular medicine has only grown stronger. What draws me to this field is its perfect blend of high-stakes visual diagnostics, dynamic haemodynamics and immediate clinical impact—where rapid, evidence-based intervention directly saves lives. I’m thrilled to represent RCS and look forward to fostering a collaborative environment for all of us fascinated by the heart.",
+  },
+  ...Array.from({ length: 5 }, () => ({
+    name: "Name to be confirmed",
+    role: "Board profile",
+    image: null,
+    introduction: "Role and short introduction pending.",
+  })),
+];
 
 export default function Home() {
   const semester = getSemester();
@@ -141,20 +155,24 @@ export default function Home() {
               <h2>Six people guiding the society.</h2>
             </div>
             <p>
-              Board names, roles and introductions will be added when the confirmed
-              profiles are supplied.
+              Meet the students guiding RCS. Remaining profiles will be added as their
+              introductions are confirmed.
             </p>
           </div>
           <div className="board-grid">
-            {boardSeats.map((seat) => (
-              <article className="board-card" key={seat}>
-                <div className="board-number">{String(seat).padStart(2, "0")}</div>
-                <div className="board-portrait" aria-hidden="true">
-                  <span>RCS</span>
+            {boardMembers.map((member, index) => (
+              <article className={`board-card${member.image ? " board-card-confirmed" : ""}`} key={`${member.name}-${index}`}>
+                <div className="board-number">{String(index + 1).padStart(2, "0")}</div>
+                <div className={`board-portrait${member.image ? " has-photo" : ""}`}>
+                  {member.image ? (
+                    <img src={member.image} alt={`Portrait of ${member.name}`} />
+                  ) : (
+                    <span aria-hidden="true">RCS</span>
+                  )}
                 </div>
-                <p className="board-role">Board profile</p>
-                <h3>Name to be confirmed</h3>
-                <p>Role and short introduction pending.</p>
+                <p className="board-role">{member.role}</p>
+                <h3>{member.name}</h3>
+                <p>{member.introduction}</p>
               </article>
             ))}
           </div>
