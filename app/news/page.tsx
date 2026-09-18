@@ -26,8 +26,7 @@ export default function NewsArchive() {
           <a aria-current="page" href="/news">News</a>
           <a href="/#about">About</a>
           <a href="/#board">Board</a>
-          <a href="/#resources">Resources</a>
-          <a className="nav-login" href="/members">Member area</a>
+          <a href="/resources">Resources</a>
         </nav>
       </header>
 

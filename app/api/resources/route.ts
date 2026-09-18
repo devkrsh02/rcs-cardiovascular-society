@@ -88,5 +88,5 @@ export async function POST(request: Request) {
     throw error;
   }
 
-  return Response.json({ message: "Document uploaded to the member library." });
+  return Response.json({ message: "Document uploaded to the public library." });
 }

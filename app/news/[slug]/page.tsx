@@ -41,7 +41,7 @@ export default async function NewsArticlePage({ params }: ArticlePageProps) {
         </a>
         <nav aria-label="Article navigation">
           <a href="/news">All cardiology news</a>
-          <a className="nav-login" href="/members">Member area</a>
+          <a href="/resources">Resources</a>
         </nav>
       </header>
 

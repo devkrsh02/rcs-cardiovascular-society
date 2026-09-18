@@ -25,10 +25,7 @@ export default function Home() {
           <a href="/news">News</a>
           <a href="#about">About</a>
           <a href="#board">Board</a>
-          <a href="#resources">Resources</a>
-          <a className="nav-login" href="/members">
-            Member area
-          </a>
+          <a href="/resources">Resources</a>
         </nav>
       </header>
 
@@ -51,9 +48,6 @@ export default function Home() {
             <div className="hero-actions">
               <a className="button button-primary" href="#activities">
                 View semester plan <span aria-hidden="true">↓</span>
-              </a>
-              <a className="button button-quiet" href="/members">
-                Active member login
               </a>
             </div>
             <p className="semester-rule">
@@ -168,15 +162,14 @@ export default function Home() {
 
         <section className="resources-section" id="resources">
           <div className="resource-intro">
-            <p className="eyebrow">Member resources</p>
-            <h2>Society documents, kept in one private library.</h2>
+            <p className="eyebrow">Public resources</p>
+            <h2>Society documents, open to everyone.</h2>
             <p>
-              Active members can access rules, regulations and other approved documents
-              for their current semester. Board administrators can upload and manage the
-              library from the same protected area.
+              Browse RCS rules, regulations, revision materials and other approved
+              documents without an account or active membership.
             </p>
-            <a className="button button-light" href="/members">
-              Open member library <span aria-hidden="true">→</span>
+            <a className="button button-light" href="/resources">
+              Open public library <span aria-hidden="true">→</span>
             </a>
           </div>
           <div className="resource-types" aria-label="Resource categories">
@@ -208,7 +201,7 @@ export default function Home() {
           </span>
         </div>
         <div className="footer-center">
-          <p>{semester.name} · Private society hub</p>
+          <p>{semester.name} · RSU Cardiovascular Society</p>
           <nav className="footer-contacts" aria-label="RCS contact details">
             <a href="mailto:cardiovascularsociety@gmail.com">
               <span>Email</span>

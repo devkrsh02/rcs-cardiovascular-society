@@ -1,5 +1,4 @@
 import { env } from "cloudflare:workers";
-import { identityFromHeaders, resolveMemberAccess } from "@/lib/member-access";
 
 export const dynamic = "force-dynamic";
 
@@ -9,13 +8,9 @@ function contentDisposition(filename: string) {
 }
 
 export async function GET(
-  request: Request,
+  _request: Request,
   context: { params: Promise<{ id: string }> },
 ) {
-  const access = await resolveMemberAccess(identityFromHeaders(request.headers));
-  if (!access?.isActiveMember) {
-    return Response.json({ error: "Active semester membership is required." }, { status: 403 });
-  }
   if (!env.DB || !env.BUCKET) {
     return Response.json({ error: "Document storage is unavailable." }, { status: 503 });
   }
@@ -39,7 +34,7 @@ export async function GET(
       "content-type": record.content_type,
       "content-length": String(object.size),
       "content-disposition": contentDisposition(record.original_filename),
-      "cache-control": "private, no-store",
+      "cache-control": "public, max-age=3600",
     },
   });
 }
