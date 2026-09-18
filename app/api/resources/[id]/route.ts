@@ -2,10 +2,9 @@ import { env } from "cloudflare:workers";
 
 export const dynamic = "force-dynamic";
 
-function contentDisposition(filename: string, inline = false) {
+function contentDisposition(filename: string) {
   const ascii = filename.replace(/[^\x20-\x7E]+/g, "_").replace(/["\\]/g, "_");
-  const disposition = inline ? "inline" : "attachment";
-  return `${disposition}; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(filename)}`;
+  return `attachment; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(filename)}`;
 }
 
 export async function GET(
@@ -17,7 +16,6 @@ export async function GET(
   }
 
   const { id } = await context.params;
-  const inline = new URL(_request.url).searchParams.get("inline") === "1";
   const record = await env.DB.prepare(
     `SELECT object_key, original_filename, content_type
      FROM resources
@@ -35,7 +33,7 @@ export async function GET(
     headers: {
       "content-type": record.content_type,
       "content-length": String(object.size),
-      "content-disposition": contentDisposition(record.original_filename, inline),
+      "content-disposition": contentDisposition(record.original_filename),
       "cache-control": "public, max-age=3600",
     },
   });
