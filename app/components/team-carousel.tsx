@@ -10,7 +10,14 @@ const boardMembers = [
     introduction:
       "Hello everyone! My name is G R Devesh Krishnan, an 8th-semester medical student here at RSU and a representative for the RSU Cardiovascular Society. Having spent the last few years navigating clinical rotations, my passion for cardiovascular medicine has only grown stronger. What draws me to this field is its perfect blend of high-stakes visual diagnostics, dynamic haemodynamics and immediate clinical impact—where rapid, evidence-based intervention directly saves lives. I’m thrilled to represent RCS and look forward to fostering a collaborative environment for all of us fascinated by the heart.",
   },
-  ...Array.from({ length: 5 }, () => ({
+  {
+    name: "Garima Chhabra",
+    role: "Social Media Manager",
+    image: "/garima-chhabra.jpeg",
+    introduction:
+      "Hi, I'm Garima Chhabra! I'm an RSU 4th semester medical student and the Social Media Manager for RCS. I love diving into the complexities of cardiac physiology and translating that into fun, educational content for our society. When I'm not hitting the books or designing graphics for the team, you can usually find me unwinding with a relaxing walk.",
+  },
+  ...Array.from({ length: 4 }, () => ({
     name: "Name to be confirmed",
     role: "Board profile",
     image: null,
