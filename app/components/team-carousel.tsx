@@ -81,7 +81,7 @@ export function TeamCarousel() {
               <div className="team-member-heart-art" aria-hidden="true">
                 <img src="/rcs-anatomical-heart.png" alt="" />
               </div>
-              <div className={`team-member-photo${member.image ? " has-photo" : ""}`}>
+              <div className={`team-member-photo${member.image ? " has-photo" : ""}${member.name === "Garima Chhabra" ? " team-photo-centered" : ""}`}>
                 {member.image ? (
                   <img src={member.image} alt={`Portrait of ${member.name}`} />
                 ) : (
