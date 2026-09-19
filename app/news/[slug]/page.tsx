@@ -68,7 +68,9 @@ export default async function NewsArticlePage({ params }: ArticlePageProps) {
                 .filter((image) => image.afterSection === sectionIndex)
                 .map((image) => (
                   <figure key={image.src}>
-                    <img src={image.src} alt={image.alt} />
+                    <a className="article-image-link" href={image.src} target="_blank" rel="noreferrer">
+                      <img src={image.src} alt={image.alt} />
+                    </a>
                     {image.caption || image.credit ? (
                       <figcaption>
                         {image.caption}
@@ -86,11 +88,15 @@ export default async function NewsArticlePage({ params }: ArticlePageProps) {
             <h2 id="article-references-title">Read the original sources</h2>
             <ol>
               {article.references.map((reference) => (
-                <li key={reference.url}>
-                  <a href={reference.url} target="_blank" rel="noreferrer">
-                    {reference.label}
-                    {reference.publisher ? ` — ${reference.publisher}` : ""}
-                  </a>
+                <li key={reference.label}>
+                  {reference.url ? (
+                    <a href={reference.url} target="_blank" rel="noreferrer">
+                      {reference.label}
+                      {reference.publisher ? ` — ${reference.publisher}` : ""}
+                    </a>
+                  ) : (
+                    <span>{reference.label}{reference.publisher ? ` — ${reference.publisher}` : ""}</span>
+                  )}
                 </li>
               ))}
             </ol>

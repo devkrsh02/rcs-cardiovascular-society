@@ -1,6 +1,6 @@
 export type NewsReference = {
   label: string;
-  url: string;
+  url?: string;
   publisher?: string;
 };
 
@@ -23,6 +23,8 @@ export type NewsArticle = {
   summary: string;
   publishedAt: string;
   readingMinutes: number;
+  thumbnail?: string;
+  thumbnailAlt?: string;
   sections: NewsSection[];
   images: NewsImage[];
   references: NewsReference[];
@@ -30,7 +32,9 @@ export type NewsArticle = {
 
 // Approved Tuesday articles are added here. The archive and article routes
 // update automatically when an entry is published.
-export const newsArticles: NewsArticle[] = [];
+import { oculomicsArticle } from "./oculomics";
+
+export const newsArticles: NewsArticle[] = [oculomicsArticle];
 
 export function getNewsArticle(slug: string) {
   return newsArticles.find((article) => article.slug === slug);
