@@ -874,7 +874,7 @@ h3 { text-wrap: balance; }
 }
 .article-masthead { max-width: 1150px; margin: 0 auto; padding-bottom: clamp(42px, 5vw, 60px); border-bottom: 1px solid var(--line); }
 .article-back { display: inline-block; margin-bottom: 60px; text-decoration: none; }
-.article-masthead h1 { max-width: 1100px; font-size: clamp(3.1rem, 7vw, 6.7rem); text-align: justify; text-justify: inter-word; }
+.article-masthead h1 { max-width: 1150px; font-size: clamp(3.1rem, 7vw, 6.7rem); }
 .article-deck { max-width: 1150px; margin: 44px 0 28px; color: var(--muted); font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.55; text-align: justify; text-justify: inter-word; }
 .article-byline { display: flex; gap: 24px; }
 .article-body { position: relative; max-width: 1150px; margin: 0 auto; padding-top: clamp(40px, 5vw, 58px); }
