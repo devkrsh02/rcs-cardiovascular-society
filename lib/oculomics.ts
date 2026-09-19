@@ -98,12 +98,6 @@ export const oculomicsArticle: NewsArticle = {
   ],
   "images": [
     {
-      "src": "/news/oculomics/heart-to-eye-pathway.png",
-      "alt": "Heart-to-eye pathway showing irregular atrial contraction, blood stasis and vascular stress leading to possible retinal changes.",
-      "caption": "Figure 1. The proposed heart–eye relationship. Atrial fibrillation may be associated with vascular and retinal structural changes, although the precise causal pathway remains uncertain. Adapted for RCS educational use.",
-      "afterSection": 0
-    },
-    {
       "src": "/news/oculomics/retinal-imaging-methods.jpeg",
       "alt": "Retinal imaging methods used to examine retinal structure and its association with atrial fibrillation.",
       "caption": "Figure 2. Retinal imaging methods used in the study. Multimodal retinal imaging, including OCT, was used to examine retinal structure and its association with atrial fibrillation. Adapted from Huemer et al., PLOS Digital Health, 2026.",
@@ -145,4 +139,3 @@ export const oculomicsArticle: NewsArticle = {
     }
   ]
 };
-
