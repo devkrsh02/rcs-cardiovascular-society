@@ -47,11 +47,6 @@ export default function NewsArchive() {
           <section className="news-archive" aria-label="Published cardiology articles">
             {newsArticles.map((article, index) => (
               <article className={`news-card${index === 0 ? " news-card-featured" : ""}`} key={article.slug}>
-                {article.thumbnail ? (
-                  <a className="news-card-image" href={`/news/${article.slug}`} aria-label={`Read ${article.title}`}>
-                    <img src={article.thumbnail} alt={article.thumbnailAlt || ""} />
-                  </a>
-                ) : null}
                 <div className="news-card-date">
                   <span>{index === 0 ? "Latest edition" : "Tuesday edition"}</span>
                   <time dateTime={article.publishedAt}>{formatNewsDate(article.publishedAt)}</time>

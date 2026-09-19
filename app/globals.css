@@ -779,7 +779,7 @@ h3 { text-wrap: balance; }
 .news-archive { border-bottom: 1px solid var(--line); }
 .news-card {
   display: grid;
-  grid-template-columns: 210px 185px minmax(0, 1fr) auto;
+  grid-template-columns: 185px minmax(0, 1fr) auto;
   gap: clamp(26px, 5vw, 70px);
   padding-block: 38px;
   border-bottom: 1px solid var(--line);
