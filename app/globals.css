@@ -843,19 +843,19 @@ h3 { text-wrap: balance; }
 
 .article-page { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(48px, 6vw, 82px); }
 .article-page::before { position: absolute; z-index: -1; top: 70px; right: -22%; width: min(76vw, 1120px); height: 94%; background: url("/rcs-anatomical-heart.png") right top / contain no-repeat; opacity: 0.075; content: ""; pointer-events: none; }
-.article-masthead { max-width: 1040px; margin: 0 auto; padding-bottom: clamp(42px, 5vw, 60px); border-bottom: 1px solid var(--line); }
+.article-masthead { max-width: 1150px; margin: 0 auto; padding-bottom: clamp(42px, 5vw, 60px); border-bottom: 1px solid var(--line); }
 .article-back { display: inline-block; margin-bottom: 60px; text-decoration: none; }
 .article-masthead h1 { max-width: 1050px; font-size: clamp(3.1rem, 7vw, 6.7rem); }
 .article-deck { max-width: 800px; margin: 30px 0 28px; color: var(--muted); font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.55; }
 .article-byline { display: flex; gap: 24px; }
-.article-body { position: relative; max-width: 1040px; margin: 0 auto; padding-top: clamp(40px, 5vw, 58px); }
+.article-body { position: relative; max-width: 1150px; margin: 0 auto; padding-top: clamp(40px, 5vw, 58px); }
 .article-body::before {
   position: absolute;
   z-index: -1;
-  top: 28px;
-  left: calc(-1 * clamp(330px, 25vw, 470px));
-  width: clamp(320px, 24vw, 460px);
-  height: 760px;
+  top: 170px;
+  left: calc(-1 * clamp(420px, 27vw, 520px));
+  width: clamp(450px, 32vw, 620px);
+  height: 940px;
   background: url("/news/oculomics/eye-watermark.png") center top / contain no-repeat;
   content: "";
   opacity: 0.075;
@@ -864,7 +864,7 @@ h3 { text-wrap: balance; }
 .article-section { margin-bottom: 32px; }
 .article-section h2,
 .article-references h2 { margin-bottom: 18px; font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.12; }
-.article-section p { font-family: var(--serif); font-size: 1.14rem; line-height: 1.82; }
+.article-section p { font-family: var(--serif); font-size: 1.14rem; line-height: 1.82; text-align: justify; text-justify: inter-word; }
 .article-section figure { margin: 32px 0 38px; }
 .article-section figure img { display: block; width: 100%; max-height: 620px; border-radius: 8px; object-fit: contain; }
 .article-image-link { display: block; cursor: zoom-in; }
