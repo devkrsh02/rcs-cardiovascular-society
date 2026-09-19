@@ -96,14 +96,7 @@ export const oculomicsArticle: NewsArticle = {
       ]
     }
   ],
-  "images": [
-    {
-      "src": "/news/oculomics/retinal-imaging-methods.jpeg",
-      "alt": "Retinal imaging methods used to examine retinal structure and its association with atrial fibrillation.",
-      "caption": "Figure 2. Retinal imaging methods used in the study. Multimodal retinal imaging, including OCT, was used to examine retinal structure and its association with atrial fibrillation. Adapted from Huemer et al., PLOS Digital Health, 2026.",
-      "afterSection": 1
-    }
-  ],
+  "images": [],
   "references": [
     {
       "label": "Huemer J, et al. Atrial fibrillation and retinal imaging-based oculomics: A cross-sectional and longitudinal analysis of two large cohorts. PLOS Digital Health. 2026. doi: 10.1371/journal.pdig.0001661.",
