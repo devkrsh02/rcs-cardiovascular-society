@@ -842,25 +842,42 @@ h3 { text-wrap: balance; }
 .public-library { padding: clamp(24px, 4vw, 48px); }
 
 .article-page { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(48px, 6vw, 82px); }
-.article-page::before { position: absolute; z-index: -1; top: 70px; right: -22%; width: min(76vw, 1120px); height: 94%; background: url("/rcs-anatomical-heart.png") right top / contain no-repeat; opacity: 0.075; content: ""; pointer-events: none; }
+.article-watermark-stream {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  display: grid;
+  grid-template-rows: repeat(8, minmax(760px, 1fr));
+  gap: 90px;
+  overflow: hidden;
+  padding-block: 20px 120px;
+  pointer-events: none;
+}
+.article-watermark-stream span {
+  display: block;
+  width: min(58vw, 1000px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.065;
+}
+.article-watermark-stream .is-heart {
+  justify-self: end;
+  background-image: url("/rcs-anatomical-heart.png");
+  transform: translateX(20%);
+}
+.article-watermark-stream .is-eye {
+  justify-self: start;
+  background-image: url("/news/oculomics/eye-watermark.png");
+  transform: translateX(-18%);
+}
 .article-masthead { max-width: 1150px; margin: 0 auto; padding-bottom: clamp(42px, 5vw, 60px); border-bottom: 1px solid var(--line); }
 .article-back { display: inline-block; margin-bottom: 60px; text-decoration: none; }
 .article-masthead h1 { max-width: 1050px; font-size: clamp(3.1rem, 7vw, 6.7rem); }
-.article-deck { max-width: 800px; margin: 30px 0 28px; color: var(--muted); font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.55; }
+.article-deck { max-width: 800px; margin: 30px 0 28px; color: var(--muted); font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.55; text-align: justify; text-justify: inter-word; }
 .article-byline { display: flex; gap: 24px; }
 .article-body { position: relative; max-width: 1150px; margin: 0 auto; padding-top: clamp(40px, 5vw, 58px); }
-.article-body::before {
-  position: absolute;
-  z-index: -1;
-  top: 170px;
-  left: calc(-1 * clamp(420px, 27vw, 520px));
-  width: clamp(450px, 32vw, 620px);
-  height: 940px;
-  background: url("/news/oculomics/eye-watermark.png") center top / contain no-repeat;
-  content: "";
-  opacity: 0.075;
-  pointer-events: none;
-}
 .article-section { margin-bottom: 32px; }
 .article-section h2,
 .article-references h2 { margin-bottom: 18px; font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.12; }
@@ -1056,8 +1073,7 @@ h3 { text-wrap: balance; }
   .article-back { margin-bottom: 40px; }
   .article-byline { align-items: flex-start; flex-direction: column; gap: 7px; }
   .article-references { padding: 24px; }
-  .article-page::before { display: none; }
-  .article-body::before { display: none; }
+  .article-watermark-stream { display: none; }
   .site-footer { align-items: flex-start; flex-direction: column; padding-block: 30px; }
   .footer-center { order: initial; }
   .footer-contacts { align-items: flex-start; flex-direction: column; gap: 9px; }

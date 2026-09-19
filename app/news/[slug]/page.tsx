@@ -46,6 +46,11 @@ export default async function NewsArticlePage({ params }: ArticlePageProps) {
       </header>
 
       <main className="article-page">
+        <div className="article-watermark-stream" aria-hidden="true">
+          {Array.from({ length: 8 }, (_, index) => (
+            <span className={index % 2 === 0 ? "is-heart" : "is-eye"} key={index} />
+          ))}
+        </div>
         <header className="article-masthead">
           <a className="article-back" href="/news">← Tuesday news archive</a>
           <p className="eyebrow">RCS Cardiology News</p>
